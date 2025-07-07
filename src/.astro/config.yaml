@@ -1,0 +1,3 @@
+project:
+    name: airflow-dbt-snowflake-project
+    source: src

@@ -1,0 +1,32 @@
+name: 'airbnb'
+version: '1.0.0'
+config-version: 2
+
+profile: 'snowflake_profile'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+
+vars:
+  event_date: "1970-01-01"
+
+models:
+  airbnb:
+    +database: SNOWFLAKE_LEARNING_DB
+
+    stage:
+      +schema: AREEES777_LOAD_SAMPLE_DATA_FROM_S3
+      +materialized: table
+
+    core:
+      +schema: core
+
+    report:
+      +schema: report

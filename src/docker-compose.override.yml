@@ -1,0 +1,22 @@
+services:
+  scheduler:
+    build:
+      context: .
+    volumes:
+      - ${HOME}/.aws:/home/astro/.aws:rw
+      - ${HOME}/.ssh:/home/astro/.ssh:rw
+      - ../dbt:/usr/local/airflow/dbt/airbnb:rw
+      - ./dags:/usr/local/airflow/dags:rw
+      - ./utils:/usr/local/airflow/utils:rw
+    environment:
+      AIRFLOW__CORE__DAG_DIR_LIST_INTERVAL: 30
+
+  webserver:
+    volumes:
+      - ${HOME}/.aws:/home/astro/.aws:rw
+      - ../dbt:/usr/local/airflow/dbt/airbnb:rw
+
+  triggerer:
+    volumes:
+      - ${HOME}/.aws:/home/astro/.aws:rw
+      - ../dbt:/usr/local/airflow/dbt/airbnb:rw

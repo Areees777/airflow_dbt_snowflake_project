@@ -1,0 +1,14 @@
+snowflake_profile:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      database: AIRBNB
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      schema: PUBLIC
+      authenticator: snowflake_jwt
+      private_key_path: /home/astro/.ssh/snowflake_rsa_key
+      private_key_passphrase: ""

@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "airflow_dbt_snowflake_project"
+version = "1.0.0"
+description = "Astronomer airflow project working with DBT and Snowflake"
+authors = ["Ares ares.argiles@gmail.com"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "3.10.12"
+requests = "^2.28.1"
+numpy = "^1.24.0"
+dbt-core = "1.9.4"
+dbt-snowflake = "1.9.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "3.3.3"
+ruff = "^0.11.12"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
