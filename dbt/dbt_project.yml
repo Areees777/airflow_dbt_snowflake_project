@@ -19,14 +19,16 @@ vars:
 
 models:
   airbnb:
-    +database: SNOWFLAKE_LEARNING_DB
+    +database: AIRBNB
 
     stage:
-      +schema: AREEES777_LOAD_SAMPLE_DATA_FROM_S3
+      +schema: stage
       +materialized: table
-
+    
     core:
       +schema: core
+      +materialized: table
 
-    report:
-      +schema: report
+seeds:
+  airbnb:
+    +schema: raw

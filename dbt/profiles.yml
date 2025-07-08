@@ -5,10 +5,10 @@ snowflake_profile:
       type: snowflake
       account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
       user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
       role: "{{ env_var('SNOWFLAKE_ROLE') }}"
       database: AIRBNB
       warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
-      schema: PUBLIC
-      authenticator: snowflake_jwt
-      private_key_path: /home/astro/.ssh/snowflake_rsa_key
-      private_key_passphrase: ""
+      schema: RAW
+      threads: 1
+      client_session_keep_alive: False

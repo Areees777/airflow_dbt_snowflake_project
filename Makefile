@@ -1,8 +1,8 @@
 start-local:
-	astro dev start
+	cd src && astro dev start
 
 stop-local:
-	astro dev stop
+	cd src && astro dev stop
 
 restart-local:
-	astro dev restart
+	cd src && astro dev restart
