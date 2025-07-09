@@ -1,4 +1,7 @@
-{{ config(materialized='ephemeral') }}
+{{ config(
+    alias='listing',
+    materialized='view'
+) }}
 
 WITH raw_listings AS (
     SELECT *

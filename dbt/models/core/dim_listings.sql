@@ -1,6 +1,6 @@
-WITH listings AS (
+WITH cte_listings AS (
     SELECT *
-    FROM {{ ref('listings') }}
+    FROM {{ ref('listing') }}
 )
 
 SELECT 
@@ -12,7 +12,7 @@ SELECT
         ELSE minimum_nights
     END AS minimum_nights,
     host_id,
-    REPLACE(price_str, '$') :: NUMBER (10, 2) AS price,
+    TO_NUMBER(REPLACE(price_str, '$', '')) AS price,
     created_at,
     updated_at
-FROM listings
+FROM cte_listings

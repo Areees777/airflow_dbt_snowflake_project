@@ -1,4 +1,7 @@
-{{ config(materialized='ephemeral') }}
+{{ config(
+    alias='reviews',
+    materialized='view'
+) }}
 
 WITH raw_reviews AS (
     SELECT *

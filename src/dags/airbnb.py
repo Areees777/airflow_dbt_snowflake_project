@@ -39,6 +39,14 @@ def airbnb_dag():
             **get_cosmos_base_config(),
         )
 
+    def run_snapshots():
+        return DbtTaskGroup(
+            group_id="dbt_snapshots",
+            profile_config=get_profile_config(),
+            render_config=RenderConfig(**COSMOS_RENDER_CONFIG, select=["path:snapshots"]),
+            **get_cosmos_base_config(),
+        )
+
     def stage_models():
         return DbtTaskGroup(
             group_id="dbt_stage",
@@ -65,11 +73,12 @@ def airbnb_dag():
     
     # freshness_task = dbt_freshness()
     load_seeds_task = load_seeds()
+    run_snapshots_task = run_snapshots()
     stg_dbt_models_task = stage_models()
     core_dbt_models_task = core_models()
     report_dbt_models_task = report_models()
 
-    start_task >> load_seeds_task >> stg_dbt_models_task
+    start_task >> load_seeds_task >> run_snapshots_task >> stg_dbt_models_task
     stg_dbt_models_task >> core_dbt_models_task
     core_dbt_models_task >> report_dbt_models_task >> end_task
 

@@ -1,5 +1,6 @@
 {{ config(
-    materialized = 'table',
+    alias='fullmoon_reviews',
+    materialized = 'table'
 ) }}
 
 WITH fct_reviews AS (

@@ -28,6 +28,10 @@ models:
     core:
       +schema: core
       +materialized: table
+    
+    report:
+      +schema: report
+      +materialized: table
 
 seeds:
   airbnb:

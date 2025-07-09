@@ -1,0 +1,30 @@
+version: 2
+
+models: 
+  - name: dim_listings
+    description: >
+      Dimension airbnb listings table
+    columns:
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+
+      - name: host_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_hosts')
+              field: host_id
+      
+      - name: room_type
+        tests: 
+          - accepted_values:
+              values: ['Entire home/apt', 
+                       'Private room', 
+                       'Shared room', 
+                       'Hotel room']
+      
+      - name: minimum_nights
+        tests:
+          - minimum_nights

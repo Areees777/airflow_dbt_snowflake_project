@@ -1,4 +1,7 @@
-{{ config(materialized='ephemeral') }}
+{{config(
+    alias='hosts',
+    materialized='view'
+) }}
 
 WITH raw_hosts AS (
     SELECT *

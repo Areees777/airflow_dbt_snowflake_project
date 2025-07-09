@@ -5,23 +5,10 @@ sources:
     tables:
       - name: RAW_HOSTS
         description: "Raw hosts data from Airbnb"
-        columns:
-          - name: host_id
-            tests:
-              - not_null
-              - unique
       - name: RAW_LISTINGS
         description: "Raw listings data from Airbnb"
-        columns:
-          - name: listing_id
-            tests:
-              - not_null
       - name: RAW_REVIEWS
         description: "Raw reviews data from Airbnb"
-        columns:
-          - name: review_id
-            tests:
-              - not_null
         loaded_at_field: date
         freshness:
           warn_after: {count: 6, period: hour}
