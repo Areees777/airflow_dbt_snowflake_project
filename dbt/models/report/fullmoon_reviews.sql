@@ -12,7 +12,11 @@ full_moon_dates AS (
 )
 
 SELECT
-    r.*,
+    r.listing_id,
+    {{ to_date_column("r.review_date") }} AS review_date,
+    r.reviewer_name,
+    r.review_text,
+    r.review_sentiment,
     CASE
         WHEN fm.full_moon_date IS NULL THEN 'not full moon'
     ELSE 'full moon'
