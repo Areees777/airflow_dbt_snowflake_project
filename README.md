@@ -26,10 +26,28 @@ This project showcases an end-to-end data pipeline using **Apache Airflow** to o
 
 ## 🏗️ Architecture
 
-+----------------------------+     +----------------------+     +---------------------------+     +----------------------------+
-| Airbnb Raw Data in        | --> |   Apache Airflow      | --> |           dbt             | --> | Final Tables in Snowflake |
-| Snowflake (Staging Area)  |     | (Runs dbt models)     |     | (Transform & Model Data)  |     |                            |
-+----------------------------+     +----------------------+     +---------------------------+     +----------------------------+
++---------------------------+
+| Airbnb Raw Data in       |
+| Snowflake (Staging Area) |
++------------+--------------+
+             |
+             v
++---------------------------+
+|      Apache Airflow       |
+|   (Orchestrates dbt run)  |
++------------+--------------+
+             |
+             v
++---------------------------+
+|           dbt             |
+|  (Transform & Model Data) |
++------------+--------------+
+             |
+             v
++---------------------------+
+| Final Tables in Snowflake |
++---------------------------+
+
 
 
 ### 📊 dbt Models
