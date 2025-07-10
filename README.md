@@ -26,8 +26,7 @@ This project showcases an end-to-end data pipeline using **Apache Airflow** to o
 
 ## 🏗️ Architecture
 
-```mermaid
 graph TD
     A[Raw Airbnb Data in Snowflake] --> B[Airflow DAG]
     B --> C[dbt Transformations]
-    C --> D[Snowflake (Modeled Tables)]
+    C --> D[Final Tables in Snowflake]
