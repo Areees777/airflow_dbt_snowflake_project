@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ['--maxkb=600']
+
+  - repo: https://github.com/psf/black
+    rev: 24.10.0
+    hooks:
+      - id: black
+        name: "Black - code formatter"
+        args: ["--verbose", "--preview", "--line-length", "120"]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.6
+    hooks:
+      - id: ruff
+        name: "Ruff - fix (complemento de Black)"
+        args: ["--fix", "--select=I,F,E,W,N", "--ignore=C"]
+      - id: ruff
+        name: "Ruff - lint"
+        args: ["--select=E,F,W,N", "--exit-zero"]
