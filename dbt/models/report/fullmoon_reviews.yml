@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: fullmoon_reviews
+    description: >
+      Fact table combining Airbnb reviews with information about whether the review date coincided with a full moon.
+      Includes reviewer details, review content, sentiment, and the full moon indicator.
+    columns:
+      - name: listing_id
+        description: Unique identifier for the Airbnb listing being reviewed.
+        data_type: NUMBER
+
+      - name: review_date
+        description: Date when the review was submitted.
+        data_type: DATE
+
+      - name: reviewer_name
+        description: Name of the person who submitted the review.
+        data_type: VARCHAR
+
+      - name: review_text
+        description: Full text content of the review.
+        data_type: VARCHAR
+
+      - name: review_sentiment
+        description: Sentiment classification of the review (e.g., positive, negative, neutral).
+        data_type: VARCHAR
+        
+      - name: is_full_moon
+        description: Indicates whether the review was written during a full moon (true or false).
+        data_type: VARCHAR

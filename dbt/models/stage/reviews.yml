@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: reviews
+    description: >
+      Fact table containing reviews submitted by users for Airbnb listings,
+      including review metadata, sentiment, and the full text of the review.
+    columns:
+      - name: listing_id
+        description: Unique identifier for the listing being reviewed.
+        data_type: NUMBER
+
+      - name: reviewer_name
+        description: Name of the person who submitted the review.
+        data_type: VARCHAR
+
+      - name: review_date
+        description: Timestamp when the review was submitted.
+        data_type: TIMESTAMP_NTZ
+
+      - name: review_text
+        description: Full text content of the review.
+        data_type: VARCHAR
+        
+      - name: review_sentiment
+        description: Sentiment classification of the review (e.g., positive, negative, neutral).
+        data_type: VARCHAR

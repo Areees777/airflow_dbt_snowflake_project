@@ -1,0 +1,36 @@
+version: 2
+
+models: 
+  - name: dim_listings_w_hosts
+    description: >
+      Dimension airbnb table that combines the listings and hosts models.
+    columns:
+      - name: listing_id
+        description: Unique identifier for the Airbnb listing.
+
+      - name: listing_name
+        description: Title or name of the Airbnb listing.
+
+      - name: room_type
+        description: Type of room offered (e.g., entire home, private room, shared room).
+
+      - name: minimum_nights
+        description: Minimum number of nights required to book the listing.
+
+      - name: price
+        description: Price per night for the listing, in USD.
+
+      - name: host_id
+        description: Unique identifier for the host of the listing.
+
+      - name: host_name
+        description: Name of the host offering the listing.
+
+      - name: host_is_superhost
+        description: Indicates whether the host is a Superhost (true or false).
+
+      - name: created_at
+        description: Timestamp of when the record was first created in the data warehouse.
+
+      - name: updated_at
+        description: Timestamp of the most recent update to the record in the data warehouse.
